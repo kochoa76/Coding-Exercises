@@ -77,6 +77,36 @@ return dup
     return !str.match(/([a-z]).*\1/i);
   }
 
+  //insertion sort
+  // Big O = n^2
+
+  function findMinAndRemove(array){
+      let min = array[0];
+      let minIndex = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] < min){
+          min = array[i];
+          minIndex = i;
+        }
+    }
+      array.splice(minIndex, 1)
+      return min
+  }
+
+  function insertionSort(array){
+    let newMin;
+    let sorted = []
+    while( array != 0) {
+      let newMin = findMinAndRemove(array)
+      sorted.push(newMin)
+    }
+    return sorted;
+  }
+
+
+
+// Merge Sort Algorithm
+// Big O = n log(n)
   function findMinAndRemoveSorted(array){
     return array.shift()
   }
@@ -111,7 +141,6 @@ return dup
     }
     return sorted;
   }
-<<<<<<< HEAD
 
   // Recursion problems:
 
@@ -174,5 +203,3 @@ function includesNumber(myArray, myNumber) {
     return includesNumber(myArray.slice(1), myNumber);
   }
 }
-=======
->>>>>>> 3e048a083b48f59caa2078f1acf50e2df2abbcf8
