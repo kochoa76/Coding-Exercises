@@ -77,10 +77,6 @@ return dup
     return !str.match(/([a-z]).*\1/i);
   }
 
-  
-  // Merge Sort Algorithm:
-  // Big O = n log(n)
-
   function findMinAndRemoveSorted(array){
     return array.shift()
   }
@@ -115,6 +111,7 @@ return dup
     }
     return sorted;
   }
+<<<<<<< HEAD
 
   // Recursion problems:
 
@@ -177,3 +174,5 @@ function includesNumber(myArray, myNumber) {
     return includesNumber(myArray.slice(1), myNumber);
   }
 }
+=======
+>>>>>>> 3e048a083b48f59caa2078f1acf50e2df2abbcf8
