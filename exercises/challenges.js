@@ -203,3 +203,13 @@ function includesNumber(myArray, myNumber) {
     return includesNumber(myArray.slice(1), myNumber);
   }
 }
+
+
+function findShort(s){
+ const sortedArray = s.split(' ').sort(function (a, b){
+      return a.length - b.length
+
+  })
+  return sortedArray[0].length
+
+}
