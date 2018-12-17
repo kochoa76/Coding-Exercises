@@ -204,7 +204,6 @@ function includesNumber(myArray, myNumber) {
   }
 }
 
-<<<<<<< HEAD
 
 function findShort(s){
  const sortedArray = s.split(' ').sort(function (a, b){
@@ -214,76 +213,29 @@ function findShort(s){
   return sortedArray[0].length
 
 }
-=======
-let firstNode = {name: 'susie', next: 'rkjasj'}
-let secondNode = {name: 'sam', next: 'asnan'}
-let lastNode = {name: 'charlie', next: null}
-let linkedList = 'whana'
-let collection = {rkjasj: secondNode, asnan: lastNode, whana: firstNode}
 
-  function getName(node) {
-      return node.name
+// //There is a bus moving in the city, and it takes and drop some people in each bus stop.
+//
+// You are provided with a list (or array) of integer arrays (or tuples). Each integer array has two items which represent number of people get into bus (The first item) and number of people get off the bus (The second item) in a bus stop.
+//
+// Your task is to return number of people who are still in the bus after the last bus station (after the last array). Even though it is the last bus stop, the bus is not empty and some people are still in the bus, and they are probably sleeping there :D
+//
+// Take a look on the test cases.
+//
+// Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the return integer can't be negative.
+//
+// The second value in the first integer array is 0, since the bus is empty in the first bus stop.
+
+var number = function(busStops){
+  var ppl=0;
+  for(var i=0; i < busStops.length; i++){
+
+       ppl += busStops[i][0];
+      ppl -= busStops[i][1]
   }
+  return ppl;
+};
+//reduce methods:
+const number = (busStops) => busStops.reduce((accumulator, [on, off]) => accumulator + on - off, 0);
 
-  function headNode(linkedList, collection) {
-    return collection[linkedList]
-  }
-
-  function next(node, collection) {
-    let nextNode = node.next
-
-    return collection[`${nextNode}`]
-  }
-
-  function nodeAt(index, linkedList, collection) {
-    let currentNode = collection[linkedList]
-      for(let i=0; i < index; i++) {
-        currentNode = next(currentNode, collection)
-      }
-    return currentNode
-  }
-
-  function addressAt(index, linkedList, collection) {
-      if(index === 0) {
-        return linkedList
-      } else {
-        return nodeAt(index-1, linkedList, collection).next
-      }
-
-  }
-
-  function indexAt(node, collection, linkedList) {
-        let currentIndex =0;
-        let currentNode = headNode(linkedList, collection)
-
-        while (currentNode != node) {
-            currentIndex++
-            currentNode = next(currentNode, collection)
-        }
-        return currentIndex++
-  }
-
-  function insertNodeAt(index, newAddress, linkedList, collection) {
-        let previousNode = nodeAt(index -1 , linkedList, collection)
-        let subsequentNode = nodeAt(index, linkedList, collection)
-
-        let previousNodeIdx = indexAt(previousNode, collection, linkedList)
-        let subsequentNodeIdx = indexAt(subsequentNode, collection, linkedList)
-
-        let previousNodeAddress= addressAt(previousNodeIdx, linkedList, collection)
-        let subsequentNodeAddress = addressAt(subsequentNodeIdx, linkedList, collection)
-        previousNode.next = newAddress
-        let newNode = collection[newAddress]
-        newNode.next = subsequentNodeAddress
-  }
-
-  function deleteNodeAt(index, linkedList, collection) {
-      let previousNode;
-      let currentNode = headNode(linkedList, collection)
-      for( let i =0; i < index; i++){
-        previousNode = currentNode
-        currentNode = next(currentNode, collection)
-      }
-      previousNode.next = currentNode.next
-  }
->>>>>>> 83d35fd8b3baed55a25cc6f4e1c9e27c0c3b4073
+const number = busStops => busStops.reduce((p,n) => p+n[0]-n[1],0)
