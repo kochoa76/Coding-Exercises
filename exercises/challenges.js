@@ -239,3 +239,38 @@ var number = function(busStops){
 const number = (busStops) => busStops.reduce((accumulator, [on, off]) => accumulator + on - off, 0);
 
 const number = busStops => busStops.reduce((p,n) => p+n[0]-n[1],0)
+
+// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+//
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+//
+//
+function maskify(cc) {
+  // remove all numbers except for last four,
+  //count the amount of numbers those are
+  //add in # that many times,
+  //rejoin the string
+  poundArray = []
+  arrayLength = cc.length - 4
+   for (let i=0; i< arrayLength; i++ ) {
+     var regex = /^[a-zA-Z0-9]/
+      poundArray.push(cc[i].replace(regex, '#'))
+    }
+  return poundArray.join('') + cc.split('').slice(-4).join('')
+
+}
+
+// return masked string
+function maskify(cc) {
+  cc = cc.split("");
+  for(var i = 0; i < cc.length - 4; i++){
+    cc[i] = "#";
+}
+
+cc = cc.join("");
+return cc
+}
+
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
