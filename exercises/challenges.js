@@ -324,3 +324,16 @@ function min(currentNode){
     return currentNode
   }
 }
+
+function validParentheses(parens){
+   var length = parens.length / 2;
+
+  for (var i = 0; i <= length; ++i) {
+    parens = parens.replace('()', '');
+  }
+
+  return parens == '';
+  // if in dividing parenthesis string by two there are '()' a valid parenthesis string,
+  //then replace it with '' so that if at the end the string is == '' then the response will be true.
+  //if the response has a lagging '(' that means it does not == '' and thus the string is false.
+}
