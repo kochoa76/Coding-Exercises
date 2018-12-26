@@ -405,3 +405,48 @@ function iqTest(numbers){
 
   return odd.length < even.length ? (numbers.indexOf(odd[0]) + 1) : (numbers.indexOf(even[0]) + 1);
 }
+
+// Count the number of Duplicates
+
+// Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphanumeric characters, including digits, uppercase and lowercase alphabets.
+
+// Example
+
+console.log(dupl("abcde")); //  -> 0 # no characters repeats more than once
+console.log(dupl("aabbcde")); //  -> 2 # 'a' and 'b'
+console.log(dupl("aabbcdeB")); //  -> 2 # 'a' and 'b'
+console.log(dupl("indivisibility")); //  -> 1 # 'i'
+console.log(dupl("Indivisibilities")); //  -> 2 # 'i' and 's'
+console.log(dupl("aa11")); //  -> 2 # 'a' and '1'
+
+function dupl(str) {
+  str = str.toLowerCase();
+ var dups = [];
+ for (var i=0; i<str.length; i++) {
+   if (str.indexOf(str[i])!== i) {
+     if (!dups.includes(str[i])) {
+       dups.push(str[i]);
+
+     }
+   }
+ }
+ return dups.length;
+}
+
+// Other Solutions
+/*
+function duplicateCount(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
+*/
+
+
+/*
+function duplicateCount(text) {
+  var dup = [];
+  text.toLowerCase().split('').forEach(function(v, i, arr) {if(i != arr.lastIndexOf(v) && dup.indexOf(v) == -1) dup.push(v);});
+  return dup.length;
+}
+*/
