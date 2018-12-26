@@ -434,19 +434,32 @@ function dupl(str) {
 }
 
 // Other Solutions
-/*
+
 function duplicateCount(text){
   return text.toLowerCase().split('').filter(function(val, i, arr){
     return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
   }).length;
 }
-*/
 
-
-/*
 function duplicateCount(text) {
   var dup = [];
   text.toLowerCase().split('').forEach(function(v, i, arr) {if(i != arr.lastIndexOf(v) && dup.indexOf(v) == -1) dup.push(v);});
   return dup.length;
 }
-*/
+
+
+function duplicateCount(str){
+	let dups = []
+	let newStr = str.toLowerCase().split('').sort()
+	for (var i=0; i <newStr.length; i++){
+		if (newStr[i] === newStr[i+1]){
+			if(!dups.includes(newStr[i])){
+				dups.push(newStr[i])
+        }
+    }
+   }
+	return dups.length
+}
+
+// duplicateCount('Indivisibility')
+// 1
