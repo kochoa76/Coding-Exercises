@@ -486,3 +486,20 @@ function pigIt(str){
 
 return selectedPLArr.map(arr => arr.pop().concat('ay')).join(' ')
 }
+
+//other solutions without punctuation involved
+
+
+
+
+function pigIt(str) {
+    let mapped = str.split(' ').map(word => word.slice(1) + word[0] + 'ay')
+
+  if (str[str.length - 1] === '!' || str[str.length - 1] === '.' || str[str.length - 1] === '?')  {
+    var discard = mapped.pop();
+    mapped.push(discard[0]);
+    return mapped.join(' ');
+  } else {
+    return mapped.join(' ');
+  }
+}
